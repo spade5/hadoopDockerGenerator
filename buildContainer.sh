@@ -3,7 +3,8 @@
 # node nums, default 3
 N=3
 
-if $1; then
+echo $1
+if (( $1 )); then
     N=$1
 fi
 
@@ -19,7 +20,7 @@ docker network create hadoop
 docker run --name hadoop0 --privileged=true --network hadoop --hostname hadoop0 -d -P -p 9870:9870 -p 8088:8088 hadoop
 
 # run slave containers
-for (( i=1; i<${N}; i++))
+for (( i=1; i<N; i++))
 do
     name=hadoop${i}
     echo "run ${name}"
@@ -27,7 +28,7 @@ do
 done
 
 # init containers
-for (( i=0; i<${N}; i++))
+for (( i=0; i<N; i++))
 do
     name=hadoop${i}
     echo "init ${name}"
