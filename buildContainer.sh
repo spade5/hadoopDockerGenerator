@@ -19,15 +19,17 @@ docker network create hadoop
 docker run --name hadoop0 --privileged=true --network hadoop --hostname hadoop0 -d -P -p 9870:9870 -p 8088:8088 hadoop
 
 # run slave containers
-for (( i=1; i<N; i++))
+for (( i=1; i<${N}; i++))
 do
     name=hadoop${i}
+    echo "run ${name}"
     docker run --name ${name} --privileged=true --network hadoop --hostname ${name} -d -P hadoop
 done
 
 # init containers
-for (( i=0; i<N; i++))
+for (( i=0; i<${N}; i++))
 do
     name=hadoop${i}
+    echo "init ${name}"
     docker exec $name /bin/bash -c ". /scripts/init.sh"
 done
