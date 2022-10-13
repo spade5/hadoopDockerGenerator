@@ -26,20 +26,3 @@ do
     echo "run ${name}"
     docker run --name ${name} --privileged=true --network hadoop --hostname ${name} -d -P hadoop
 done
-
-# init containers
-for (( i=0; i<N; i++))
-do
-    name=hadoop${i}
-    echo "init ${name}"
-    docker exec $name /bin/bash -c ". /scripts/init.sh"
-done
-
-# start hadoop
-docker exec -it hadoop0 /bin/bash  
-cd /usr/local/hadoop-3.3.4
-bin/hdfs namenode -format
-bin/hdfs dfs -mkdir /user
-bin/hdfs dfs -mkdir /user/root
-sbin/start-dfs.sh
-sbin/start-yarn.sh
