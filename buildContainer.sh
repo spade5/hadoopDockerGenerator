@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # node nums, default 3
-N = 3
+N=3
 
 if $1; then
-    N = $1
+    N=$1
 fi
 
 # build hadoop image
