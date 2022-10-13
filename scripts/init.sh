@@ -4,6 +4,7 @@
 # cat /scripts/hosts >> /etc/hosts
 
 echo "HADOOP_HOME:"
+HADOOP_HOME=/usr/local/hadoop-3.3.4
 echo $HADOOP_HOME
 echo "export JAVA_HOME=/usr/local/jdk11" >> $HADOOP_HOME/etc/hadoop-env.sh
 
@@ -23,5 +24,5 @@ mv -f /scripts/conf/workers $HADOOP_HOME/etc/hadoop/workers
 # scp ~/.ssh/known_hosts hadoop1:~/.ssh/known_hosts
 # scp ~/.ssh/known_hosts hadoop1:~/.ssh/known_hosts
 
-mv -f /scripts/known_hosts ~/.ssh/known_hosts
+# mv -f /scripts/known_hosts ~/.ssh/known_hosts
 

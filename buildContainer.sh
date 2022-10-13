@@ -34,3 +34,11 @@ do
     echo "init ${name}"
     docker exec $name /bin/bash -c ". /scripts/init.sh"
 done
+
+# start hadoop
+docker exec hadoop0 /bin/bash -c "cd /usr/local/hadoop-3.3.4
+                                  bin/hdfs namenode -format
+                                  bin/hdfs dfs -mkdir /user
+                                  bin/hdfs dfs -mkdir /user/root
+                                  sbin/start-dfs.sh
+                                  sbin/start-yarn.sh"
