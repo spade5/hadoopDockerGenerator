@@ -8,6 +8,9 @@ RUN yum  install -y openssh-clients
 
 RUN yum install -y which
 
+#安装 scala
+RUN yum install scala
+
 # 添加测试用户root，密码root，并且将此用户添加到sudoers里  
 RUN echo "root:root" | chpasswd
 RUN echo "root   ALL=(ALL)       ALL" >> /etc/sudoers
@@ -28,6 +31,9 @@ RUN mv /usr/local/jdk-11.0.16.1 /usr/local/jdk11
 
 #拷贝并解压 hadoop
 ADD hadoop-3.3.4.tar.gz /usr/local
+
+#拷贝并解压 spark
+ADD spark-3.3.0-bin-hadoop3.tgz /usr/local
 
 #拷贝并解压 spark
 #TODO

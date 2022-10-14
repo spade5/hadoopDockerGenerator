@@ -2,7 +2,8 @@
 
 export JAVA_HOME=/usr/local/jdk11
 export HADOOP_HOME=/usr/local/hadoop-3.3.4
-export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$PATH
+export SPARK_HOME=/usr/local/spark-3.3.0-bin-hadoop3
+export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$SPARK_HOME/bin:$PATH
 
 export HDFS_NAMENODE_USER=root
 export HDFS_DATANODE_USER=root
