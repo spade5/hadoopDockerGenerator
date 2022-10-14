@@ -9,11 +9,8 @@ RUN yum  install -y openssh-clients
 RUN yum install -y which
 
 #安装 scala
-ADD cs-x86_64-pc-linux.gz /usr/local/
-RUN mv /usr/local/cs-x86_64-pc-linux.gz /usr/local/cs
-RUN chmod +x /usr/local/cs
-RUN /usr/local/cs setup
-RUN scala -version
+ADD scala-2.13.10.tgz /usr/local/
+RUN mv /usr/local/scala-2.13.10 /usr/local/scala
 
 # 添加测试用户root，密码root，并且将此用户添加到sudoers里  
 RUN echo "root:root" | chpasswd
