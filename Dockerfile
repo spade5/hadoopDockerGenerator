@@ -9,7 +9,8 @@ RUN yum  install -y openssh-clients
 RUN yum install -y which
 
 #安装 scala
-RUN yum install scala
+RUN curl -fL https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs && ./cs setup
+RUN scala -version
 
 # 添加测试用户root，密码root，并且将此用户添加到sudoers里  
 RUN echo "root:root" | chpasswd
