@@ -36,9 +36,6 @@ ADD hadoop-3.3.4.tar.gz /usr/local
 #拷贝并解压 spark
 ADD spark-3.3.0-bin-hadoop3.tgz /usr/local
 
-#拷贝并解压 spark
-#TODO
-
 RUN mkdir /scripts
 COPY scripts /scripts/
 COPY my-env.sh /etc/profile.d/
