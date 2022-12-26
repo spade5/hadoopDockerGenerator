@@ -9,7 +9,7 @@ RUN yum  install -y openssh-clients
 RUN yum install -y which
 
 #安装 scala
-ADD scala-2.13.10.tgz /usr/local/
+ADD ./packages/scala-2.13.10.tgz /usr/local/
 RUN mv /usr/local/scala-2.13.10 /usr/local/scala
 
 # 添加测试用户root，密码root，并且将此用户添加到sudoers里  
@@ -27,14 +27,14 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
     cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
 #拷贝并解压jdk
-ADD jdk-11.tar.gz /usr/local/
+ADD ./packages/jdk-11.0.16.1_linux-aarch64_bin.tar.gz /usr/local/
 RUN mv /usr/local/jdk-11.0.16.1 /usr/local/jdk11
 
 #拷贝并解压 hadoop
-ADD hadoop-3.3.4.tar.gz /usr/local
+ADD ./packages/hadoop-3.3.4.tar.gz /usr/local
 
 #拷贝并解压 spark
-ADD spark-3.3.0-bin-hadoop3.tgz /usr/local
+ADD ./packages/spark-3.3.0-bin-hadoop3.tgz /usr/local
 
 RUN mkdir /scripts
 COPY scripts /scripts/

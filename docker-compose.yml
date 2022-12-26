@@ -1,0 +1,66 @@
+services:
+  # zookeeper:
+  #   image: docker.io/bitnami/zookeeper:3.8
+  #   container_name: zookeeper
+  #   hostname: zookeeper
+  #   networks:
+  #     - hadoop
+  #   ports:
+  #     - "2181:2181"
+  #   volumes:
+  #     - "~/workspace/volumes/zookeeper:/workspace"
+  #   environment:
+  #     - ALLOW_ANONYMOUS_LOGIN=yes
+  # kafka:
+  #   image: docker.io/bitnami/kafka:3.3
+  #   container_name: kafka
+  #   hostname: kafka
+  #   networks:
+  #     - hadoop
+  #   ports:
+  #     - "9092:9092"
+  #   volumes:
+  #     - "~/workspace/volumes/kafka:/workspace"
+  #   environment:
+  #     - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+  #     - ALLOW_PLAINTEXT_LISTENER=yes
+  #   depends_on:
+  #     - zookeeper
+  hadoop0:
+    hostname: hadoop0
+    container_name: hadoop0
+    build: ./build
+    privileged: true
+    ports:
+      - "9870:9870"
+      - "8080:8080"
+      - "4040:4040"
+      - "19888:19888"
+      - "8042:8042"
+    volumes:
+      - "~/workspace/volumes/hadoop:/workspace"
+    networks:
+      - hadoop
+  hadoop1:
+    hostname: hadoop1
+    container_name: hadoop1
+    build: ./build
+    privileged: true
+    networks:
+      - hadoop
+  hadoop2:
+    hostname: hadoop2
+    container_name: hadoop2
+    build: ./build
+    privileged: true
+    networks:
+      - hadoop
+
+# volumes:
+#   ~/workspace/zookeeper_data:
+#     driver: local
+#   ~/workspace/kafka_data:
+#     driver: local
+
+networks:
+  hadoop: {}
