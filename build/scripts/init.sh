@@ -8,7 +8,7 @@ if [[ -d "/scripts/confbak/" ]]; then
 else
     echo "HADOOP_HOME:"
     HADOOP_HOME=/usr/local/hadoop-3.3.4
-    SPARK_HOME=/usr/local/spark-3.3.0-bin-hadoop3
+    SPARK_HOME=/usr/local/spark-3.3.1-bin-hadoop3-scala2.13
     echo $HADOOP_HOME
     echo "export JAVA_HOME=/usr/local/jdk11" >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
     cp $SPARK_HOME/conf/spark-env.sh.template $SPARK_HOME/conf/spark-env.sh

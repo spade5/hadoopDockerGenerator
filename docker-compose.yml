@@ -26,12 +26,13 @@ services:
   #     - ALLOW_PLAINTEXT_LISTENER=yes
   #   depends_on:
   #     - zookeeper
-  hadoop0:
+  hadoop-0:
     hostname: hadoop0
     container_name: hadoop0
     build: ./build
     privileged: true
     ports:
+      - "9000:9000"
       - "9870:9870"
       - "8080:8080"
       - "4040:4040"
@@ -41,14 +42,14 @@ services:
       - "~/workspace/volumes/hadoop:/workspace"
     networks:
       - hadoop
-  hadoop1:
+  hadoop-1:
     hostname: hadoop1
     container_name: hadoop1
     build: ./build
     privileged: true
     networks:
       - hadoop
-  hadoop2:
+  hadoop-2:
     hostname: hadoop2
     container_name: hadoop2
     build: ./build

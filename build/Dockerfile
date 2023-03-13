@@ -34,7 +34,7 @@ RUN mv /usr/local/jdk-11.0.16.1 /usr/local/jdk11
 ADD ./packages/hadoop-3.3.4.tar.gz /usr/local
 
 #拷贝并解压 spark
-ADD ./packages/spark-3.3.0-bin-hadoop3.tgz /usr/local
+ADD ./packages/spark-3.3.1-bin-hadoop3-scala2.13.tgz /usr/local
 
 RUN mkdir /scripts
 COPY scripts /scripts/
