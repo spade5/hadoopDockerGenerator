@@ -2,7 +2,7 @@
 
 export JAVA_HOME=/usr/local/jdk11
 export HADOOP_HOME=/usr/local/hadoop-3.3.4
-export SPARK_HOME=/usr/local/spark-3.3.1-bin-hadoop3-scala2.13
+export SPARK_HOME=/usr/local/spark-3.3.2-bin-hadoop3-scala2.13
 export SCALA_HOME=/usr/local/scala
 export PATH=$JAVA_HOME/bin:$HADOOP_HOME/bin:$SPARK_HOME/bin:$SCALA_HOME/bin:$PATH
 
